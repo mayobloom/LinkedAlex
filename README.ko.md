@@ -2,7 +2,7 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-![LinkedAlex demo](assets/linkedalex-demo.gif)
+![LinkedAlex demo](assets/linkedalex-demo.webp)
 
 LinkedAlex는 OpenAlex API를 사용해 연구 논문 주변의 인용 맥락을 탐색하는 로컬 웹 앱입니다. DOI를 입력해 인용 네트워크를 만들고, 선행/후행 논문을 살펴보며, 문맥 키워드로 논문을 검색하고, 그래프에 표시된 논문 정보를 JSON 또는 CSV로 내보낼 수 있습니다.
 

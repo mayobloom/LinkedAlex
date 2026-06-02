@@ -2,7 +2,7 @@
 
 [English](README.md) | [한국어](README.ko.md)
 
-![LinkedAlex demo](assets/linkedalex-demo.gif)
+![LinkedAlex demo](assets/linkedalex-demo.webp)
 
 LinkedAlex is a local web app for exploring citation context around a research paper using the OpenAlex API. Enter a DOI, build a citation graph, inspect predecessor and successor papers, search by contextual keywords, and export the papers shown in the graph.
 
