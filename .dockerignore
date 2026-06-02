@@ -1,0 +1,14 @@
+.git
+config.yml
+development
+.env
+.env.*
+.venv
+.cache
+backend/app/__pycache__
+frontend/node_modules
+frontend/dist
+frontend/tsconfig.tsbuildinfo
+coverage
+*.log
+*.pyc

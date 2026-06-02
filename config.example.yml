@@ -1,0 +1,50 @@
+# Copy this file to config.yml and replace only openalex.api_key for normal use.
+# The other settings are tuned defaults; change them only if you understand the tradeoffs.
+
+openalex:
+  # Your OpenAlex API key. Replace this value in config.yml.
+  api_key: "YOUR_OPENALEX_API_KEY"
+  # OpenAlex API base URL. Keep the default unless OpenAlex changes its API endpoint.
+  base_url: "https://api.openalex.org"
+  # Maximum time, in seconds, to wait for a single OpenAlex request.
+  timeout_seconds: 20
+  # Number of retry attempts after transient OpenAlex request failures.
+  max_retries: 3
+  # Client-side request pacing limit for OpenAlex calls.
+  requests_per_second: 5
+  # Maximum number of referenced works kept from each OpenAlex work object.
+  max_referenced_works_per_paper: 60
+
+graph:
+  predecessor:
+    # Maximum predecessor expansion depth. Valid range: 0-3.
+    max_depth: 2
+    # Maximum papers displayed at each predecessor step, selected by citation count.
+    limits_by_depth:
+      1: 10
+      2: 5
+      3: 2
+  successor:
+    # Maximum successor expansion depth. Valid range: 0-3.
+    max_depth: 2
+    # Maximum papers displayed at each successor step, selected by citation count.
+    limits_by_depth:
+      1: 10
+      2: 5
+      3: 2
+  # Ranking field used when selecting papers at each graph step.
+  sort_by: "cited_by_count"
+
+cache:
+  # Enable local OpenAlex response caching to reduce repeated API calls.
+  enabled: true
+  # Cache lifetime in seconds. 86400 seconds = 1 day.
+  ttl_seconds: 86400
+
+app:
+  # Backend bind host inside the container.
+  backend_host: "0.0.0.0"
+  # Backend API port.
+  backend_port: 8000
+  # Frontend web app port.
+  frontend_port: 5173
