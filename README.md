@@ -27,9 +27,9 @@ By organizing citation relationships into a paper network, LinkedAlex helps user
 
 ### 2.1 Requirements
 
-- Docker Desktop or Docker Engine
-- Docker Compose
-- OpenAlex API key
+- [Docker Desktop or Docker Engine](https://docs.docker.com/get-started/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [OpenAlex API key](https://developers.openalex.org/api-reference/authentication)
 
 ### 2.2 Configure API Key
 
@@ -45,6 +45,8 @@ Edit `config.yml` and enter your OpenAlex API key:
 openalex:
   api_key: "YOUR_OPENALEX_API_KEY"
 ```
+
+The free OpenAlex API key is sufficient for normal LinkedAlex use. OpenAlex follows the open infrastructure principle of ["We sell services, not data."](https://openscholarlyinfrastructure.org/)
 
 For most users, it is recommended to change only `openalex.api_key` and keep the other settings at their default values.
 

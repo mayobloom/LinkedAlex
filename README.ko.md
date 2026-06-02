@@ -26,9 +26,9 @@ LinkedAlex는 특정 논문이 이전 연구 및 이후 연구와 어떻게 연�
 
 ### 2.1 요구 사항
 
-- Docker Desktop 또는 Docker Engine
-- Docker Compose
-- OpenAlex API key
+- [Docker Desktop 또는 Docker Engine](https://docs.docker.com/get-started/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [OpenAlex API key](https://developers.openalex.org/api-reference/authentication)
 
 ### 2.2 API Key 설정
 
@@ -44,6 +44,8 @@ cp config.example.yml config.yml
 openalex:
   api_key: "YOUR_OPENALEX_API_KEY"
 ```
+
+LinkedAlex를 일반적으로 사용하는 데에는 무료 OpenAlex API key로 충분합니다. OpenAlex는 ["We sell services, not data."](https://openscholarlyinfrastructure.org/)라는 open infrastructure 원칙을 따릅니다.
 
 대부분의 사용자는 `openalex.api_key`만 변경하고, 나머지 설정값은 기본값 그대로 두는 것을 권장합니다.
 
