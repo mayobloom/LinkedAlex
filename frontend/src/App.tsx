@@ -324,7 +324,12 @@ export function App() {
         </span>
         <span>LinkedAlex is released under the MIT License.</span>
         <span>OpenAlex data is CC0.</span>
-        <span>Contact: GitHub Issues</span>
+        <span>
+          Contact:{' '}
+          <a href="https://github.com/mayobloom/LinkedAlex/issues" target="_blank" rel="noreferrer">
+            GitHub Issues
+          </a>
+        </span>
       </footer>
       <PaperPanel
         paper={selectedPaper}
