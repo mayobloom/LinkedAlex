@@ -4,7 +4,7 @@
 
 ![LinkedAlex demo](assets/linkedalex-demo.webp)
 
-LinkedAlex는 OpenAlex API를 사용해 연구 논문 주변의 인용 맥락을 탐색하는 로컬 웹 앱입니다. DOI를 입력해 인용 네트워크를 만들고, 선행/후행 논문을 살펴보며, 문맥 키워드로 논문을 검색하고, 그래프에 표시된 논문 정보를 JSON 또는 CSV로 내보낼 수 있습니다.
+LinkedAlex는 OpenAlex API를 사용해 연구 논문 주변의 인용 맥락을 snowball search 방식으로 탐색하는 로컬 웹 앱입니다. DOI를 입력해 선행/후행 인용 네트워크를 만들고, predecessor/successor 논문을 살펴보며, 문맥 키워드로 논문을 검색하고, 그래프에 표시된 논문 정보를 JSON 또는 CSV로 내보낼 수 있습니다.
 
 LinkedAlex는 OpenAlex 데이터를 사용하며, OpenAlex의 공식 서비스는 아닙니다.
 
@@ -44,8 +44,8 @@ cp config.example.yml config.yml
 openalex:
   api_key: "YOUR_OPENALEX_API_KEY"
 ```
-
-LinkedAlex를 일반적으로 사용하는 데에는 무료 OpenAlex API key로 충분합니다. OpenAlex는 ["We sell services, not data."](https://openscholarlyinfrastructure.org/)라는 open infrastructure 원칙을 따릅니다.
+OpenAlex는 ["We sell services, not data."](https://openscholarlyinfrastructure.org/)라는 open infrastructure 원칙을 따릅니다.
+따라서, 무료 OpenAlex API key만으로도 LinkedAlex의 검색(데이터 호출)및 여러 기능을 충분히 사용할 수 있습니다.
 
 대부분의 사용자는 `openalex.api_key`만 변경하고, 나머지 설정값은 기본값 그대로 두는 것을 권장합니다.
 
@@ -195,6 +195,8 @@ journal | count
 
 내보내는 필드:
 
+- `TYPE`
+- `DEPTH_LEVEL`
 - `TITLE`
 - `AUTHORS`
 - `YEAR`
@@ -203,6 +205,8 @@ journal | count
 - `DOI`
 - `KEYWORDS`
 - `ABSTRACT`
+
+`TYPE`은 `TARGET`, `PREDECESSOR`, `SUCCESSOR` 중 하나입니다. `DEPTH_LEVEL`은 target paper로부터의 graph depth를 의미하며, target은 `0`, 1단계 논문은 `1`, 2단계 논문은 `2`로 표시됩니다.
 
 CSV export는 Windows Excel에서 인코딩을 더 안정적으로 인식할 수 있도록 UTF-8 with BOM을 사용합니다.
 
@@ -248,9 +252,9 @@ target -> target을 인용한 논문 -> 그 논문들을 인용한 논문 -> ...
 각 단계에서 LinkedAlex는 citation count 기준으로 제한된 수의 논문만 표시합니다. 기본값은 아래와 같습니다.
 
 ```txt
-Step 1: 10
-Step 2: 5
-Step 3: 2
+Depth Level 1: 10
+Depth Level 2: 5
+Depth Level 3: 2
 ```
 
 이 값은 그래프 설정 창에서 조절할 수 있습니다.

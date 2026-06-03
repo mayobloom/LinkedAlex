@@ -105,14 +105,14 @@ export function GraphSettingsPanel({ settings, onChange, onDismiss }: Props) {
       <div className="limit-grid">
         <div>
           <h3>
-            Predecessor papers per step
-            <span>(papers shown at each step, selected by citation count)</span>
+            Predecessor papers per depth level
+            <span>(papers shown at each depth level, selected by citation count)</span>
           </h3>
           {predecessorSteps.length ? (
             predecessorSteps.map((depth) => (
               <label key={depth}>
                 <span>
-                  Step {depth}
+                  Depth Level {depth}
                   {(draft.predecessorLimitsByDepth[depth] ?? 0) > recommendedLimits[depth] && (
                     <span className="warning-icon" aria-label="Warning" title="Above recommended limit">
                       !
@@ -135,14 +135,14 @@ export function GraphSettingsPanel({ settings, onChange, onDismiss }: Props) {
         </div>
         <div>
           <h3>
-            Successor papers per step
-            <span>(papers shown at each step, selected by citation count)</span>
+            Successor papers per depth level
+            <span>(papers shown at each depth level, selected by citation count)</span>
           </h3>
           {successorSteps.length ? (
             successorSteps.map((depth) => (
               <label key={depth}>
                 <span>
-                  Step {depth}
+                  Depth Level {depth}
                   {(draft.successorLimitsByDepth[depth] ?? 0) > recommendedLimits[depth] && (
                     <span className="warning-icon" aria-label="Warning" title="Above recommended limit">
                       !
@@ -175,7 +175,7 @@ export function GraphSettingsPanel({ settings, onChange, onDismiss }: Props) {
       </div>
       {hasLimitWarning && (
         <p className="settings-warning limit-warning">
-          High step values may consume more OpenAlex credits and take longer.
+          High depth level values may consume more OpenAlex credits and take longer.
         </p>
       )}
     </section>

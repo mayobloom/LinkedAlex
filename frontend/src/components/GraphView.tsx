@@ -235,6 +235,8 @@ function buildEdges(graph: GraphResponse, selectedPaperId: string | null): Edge[
 
 function exportRows(graph: GraphResponse) {
   return graph.nodes.map((paper) => ({
+    TYPE: paper.direction.toUpperCase(),
+    DEPTH_LEVEL: paper.level,
     TITLE: paper.title,
     AUTHORS: paper.authors,
     YEAR: paper.year,
@@ -261,7 +263,7 @@ function graphExportPayload(graph: GraphResponse, format: ExportFormat) {
     };
   }
 
-  const headers = ['TITLE', 'AUTHORS', 'YEAR', 'JOURNAL', 'CITATIONS', 'DOI', 'KEYWORDS', 'ABSTRACT'];
+  const headers = ['TYPE', 'DEPTH_LEVEL', 'TITLE', 'AUTHORS', 'YEAR', 'JOURNAL', 'CITATIONS', 'DOI', 'KEYWORDS', 'ABSTRACT'];
   const csvBody = [headers.join(','), ...rows.map((row) => headers.map((header) => csvCell(row[header as keyof typeof row])).join(','))].join(
     '\n',
   );

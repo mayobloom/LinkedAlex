@@ -4,7 +4,7 @@
 
 ![LinkedAlex demo](assets/linkedalex-demo.webp)
 
-LinkedAlex is a local web app for exploring citation context around a research paper using the OpenAlex API. Enter a DOI, build a citation graph, inspect predecessor and successor papers, search by contextual keywords, and export the papers shown in the graph.
+LinkedAlex is a local web app for snowball-style citation exploration around a research paper using the OpenAlex API. Enter a DOI, build a forward and backward citation graph, inspect predecessor and successor papers, search by contextual keywords, and export the papers shown in the graph.
 
 LinkedAlex uses OpenAlex data, but it is not affiliated with OpenAlex.
 
@@ -46,7 +46,8 @@ openalex:
   api_key: "YOUR_OPENALEX_API_KEY"
 ```
 
-The free OpenAlex API key is sufficient for normal LinkedAlex use. OpenAlex follows the open infrastructure principle of ["We sell services, not data."](https://openscholarlyinfrastructure.org/)
+OpenAlex follows the open infrastructure principle of ["We sell services, not data."](https://openscholarlyinfrastructure.org/).
+Therefore, a free OpenAlex API key is enough to use LinkedAlex's search, data retrieval, and related features.
 
 For most users, it is recommended to change only `openalex.api_key` and keep the other settings at their default values.
 
@@ -196,6 +197,8 @@ Supported formats:
 
 Exported fields:
 
+- `TYPE`
+- `DEPTH_LEVEL`
 - `TITLE`
 - `AUTHORS`
 - `YEAR`
@@ -204,6 +207,8 @@ Exported fields:
 - `DOI`
 - `KEYWORDS`
 - `ABSTRACT`
+
+`TYPE` is one of `TARGET`, `PREDECESSOR`, or `SUCCESSOR`. `DEPTH_LEVEL` is the graph depth from the target paper: target is `0`, first-level papers are `1`, second-level papers are `2`, and so on.
 
 CSV export uses UTF-8 with BOM so that Windows Excel can detect the encoding more reliably.
 
@@ -249,9 +254,9 @@ target -> papers citing target -> papers citing those papers -> ...
 At each step, LinkedAlex keeps a limited number of papers selected by citation count. Default limits are:
 
 ```txt
-Step 1: 10
-Step 2: 5
-Step 3: 2
+Depth Level 1: 10
+Depth Level 2: 5
+Depth Level 3: 2
 ```
 
 These limits are configurable in the graph settings popover.

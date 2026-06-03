@@ -526,7 +526,7 @@ class GraphBuilder:
                 DirectionKeywords(
                     direction=direction,  # type: ignore[arg-type]
                     level=level,
-                    label=f"{labels[direction]} · step {level}" if level else labels[direction],
+                    label=f"{labels[direction]} · Depth Level {level}" if level else labels[direction],
                     year_min=min(years) if years else None,
                     year_max=max(years) if years else None,
                     keywords=[word for word, _ in counter.most_common(10)],
