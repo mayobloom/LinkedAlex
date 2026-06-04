@@ -8,6 +8,18 @@ LinkedAlex is a local web app for snowball-style citation exploration around a r
 
 LinkedAlex uses OpenAlex data, but it is not affiliated with OpenAlex.
 
+## 0. Use Cases
+
+LinkedAlex can be used to explore citation contexts and research trajectories around a paper or topic.
+
+1. Analyze a highly cited methodology paper A to investigate the mathematical foundations behind the methodology, including predecessor studies, and its applications in successor studies.
+2. Analyze a key predecessor paper to reverse-engineer or improve its approach, while tracking successor studies to see how the research direction develops.
+3. Identify the journals where papers in a field of interest are commonly published.
+4. Identify the keywords that describe a research area of interest, then use those keywords in the **Keyword Search** section with AND/OR conditions to find additional papers not captured in the graph and regenerate the graph from those papers.
+5. Use paper metadata exported as CSV or JSON as input to an LLM for more detailed questions and responses with reduced hallucination.
+   - Ask why paper A cited papers B-Z based on the exported citation context.
+   - Use DOI values to collect full-text sources, then provide the full texts as input to ask detailed questions not answered by abstracts, such as common methodologies used across the papers.
+
 ## 1. Project Overview
 
 LinkedAlex helps users understand how a target paper is connected to earlier and later literature.
